@@ -1,0 +1,14 @@
+Package: generalized.triangular.numbers
+Type: Package
+Title: Compute the generalized triangular numbers
+Version: 1.0
+Date: 2024-11-06
+Author: Chase Benoist
+Maintainer: Chase Benoist <chase.s.benoist@gmail.com>
+Description: 
+    Given a complex dimension \code{z} and an index \code{n},
+    compute the relevant generalized triangular number.
+License: GPL
+Imports: Rcpp
+LinkingTo: Rcpp
+RoxygenNote: 7.3.1
