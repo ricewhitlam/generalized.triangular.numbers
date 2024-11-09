@@ -22,7 +22,7 @@
   is still well-defined. The function \link{\code{gtn}} may be used to calculate generalized triangular numbers.
 }
 \author{
-Maintainer: Chase Benoist <chase.s.benoist@gmail.com>
+Maintainer: Chase Benoist <csbcodev@gmail.com>
 }
 \keyword{ package }
 \seealso{
