@@ -1,11 +1,11 @@
 
 #' @name gtn
 #' 
-#' @title Calculate the generalized triangular numbers
+#' @title Compute the generalized triangular numbers
 #'
 #' @description
 #' The triangular numbers are 1,3,6,10,15,21... 
-#' That is, the nth triangular number is the sum of the first n positive integers.
+#' That is, the index \code{n} triangular number is the sum of the first \code{n} positive integers.
 #' The sequence is named as such because it counts the number of dots in triangular
 #' arrays with increasing numbers of rows. This sequence can be generalized by 
 #' altering the dimension under consideration. The triangular numbers are the two 
@@ -13,7 +13,30 @@
 #' 1,4,10,20,35,56... In fact, the generalization can be made so extreme as to allow
 #' a "dimension" equal to any complex number. In the case of numbers which are not 
 #' positive integers, the dot-counting interpretation breaks down, but the sequence 
-#' is still well-defined. The nth generalized triangular number in dimension z is
+#' is still well-defined. \cr \cr
+#' While these numbers are interesting in a pure sense,
+#' one application is related to cumulative sums and differences.
+#' If the cumulative sum is thought of as an operator with the difference being its
+#' inverse operator, then iterated cumulative sums and differences of a vector \code{v}
+#' can be computed by convolving with the appropriate vector of 
+#' generalized triangular numbers. For example, this will compute the 
+#' cumulative sum of \code{v} iterated \code{m} times: \cr \cr
+#' \code{
+#' foo <- function(v,m){ \cr
+#' \verb{    }n <- length(v) \cr
+#' \verb{    }pow.2 <- 2^(1+ceiling(log(n,2))) \cr
+#' \verb{    }convolve(c(v,numeric(pow.2-n)),c(gtn(m-1,n),numeric(pow.2-n)),conj=F)[seq_len(n)] \cr
+#' } \cr \cr
+#' }
+#' And this will compute the difference of \code{v} iterated \code{m} times: \cr \cr
+#' \code{
+#' bar <- function(v,m){ \cr
+#' \verb{    }n <- length(v) \cr
+#' \verb{    }pow.2 <- 2^(1+ceiling(log(n,2))) \cr
+#' \verb{    }convolve(c(v,numeric(pow.2-n)),c(gtn(-(m+1),n),numeric(pow.2-n)),conj=F)[seq_len(n)] \cr
+#' } 
+#' } \cr \cr
+#' The nth generalized triangular number in dimension z is
 #' given by \code{1/(z*beta(n,z))}. However, the base R function \code{beta} does not
 #' support arbitrary complex arguments.
 #' 

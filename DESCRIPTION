@@ -5,9 +5,7 @@ Version: 1.0
 Date: 2024-11-06
 Author: Chase Benoist
 Maintainer: Chase Benoist <csbcodev@gmail.com>
-Description: 
-    Given a complex dimension \code{z} and an index \code{n},
-    compute the relevant generalized triangular number.
+Description: See \link{gtn}
 License: GPL
 Imports: Rcpp
 LinkingTo: Rcpp
